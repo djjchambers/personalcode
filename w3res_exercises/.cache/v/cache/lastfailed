@@ -1,1 +1,8 @@
-{}
+{
+  "test_class_exercise_bonanza.py": true,
+  "test_class_exercise_bonanza.py::TestCase": true,
+  "test_class_exercise_bonanza.py::TestNumToRom": true,
+  "test_class_exercise_bonanza.py::TestNumToRom::test_num_to_roman_convert": true,
+  "test_class_exercise_bonanza.py::test_num_to_roman_convertor": true,
+  "test_func_exercise_bonanza.py::test_string_executor": true
+}
