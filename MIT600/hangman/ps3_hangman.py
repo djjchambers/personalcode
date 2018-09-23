@@ -115,13 +115,18 @@ def hangman(secretWord):
     guessesLeft = 8
     gameOver = False
     lettersGuessed = []
-   
+    print('-' * 11)
+    
     while not gameOver:
-        print('-' * 11)
-        availableLetters = getAvailableLetters(lettersGuessed)
+        # guesses left
         print('You have', guessesLeft, 'guesses left.')
+        # update availableLetters
+        availableLetters = getAvailableLetters(lettersGuessed)
         print('Available letters:', availableLetters)
+        # input
         letter = str(input('Please guess a letter: ').lower())
+
+        # response
         if letter in availableLetters:
             lettersGuessed.append(letter)
             if letter in secretWord:
@@ -136,9 +141,10 @@ def hangman(secretWord):
                 gameOver = True
         else:
             if letter in lettersGuessed:
-                print("Oops! You've already guessed that letter:", getGuessedWord(secretWord, lettersGuessed))
+                response = "Oops! You've already guessed that letter:"
         print("{0:s} {1:s}".format(response, getGuessedWord(secretWord, lettersGuessed)))
         print('-' * 11) 
+        # endgame
         if isWordGuessed(secretWord, lettersGuessed) == True:
             print('Congratulations, you won!')
         elif guessesLeft == 0:

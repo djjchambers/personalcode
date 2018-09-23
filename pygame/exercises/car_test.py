@@ -53,6 +53,8 @@ while 1:
             car.k_up = down * 2
         elif event.key == K_DOWN:
             car.k_down = down * -2
+        elif event.key == K_b:
+            car.
         elif event.key == K_ESCAPE:
             sys.exit(0)
         

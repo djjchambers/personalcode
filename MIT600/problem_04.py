@@ -13,11 +13,3 @@ def biggest(aDict):
             if len(aDict[element]) > len(L):
                 L = aDict[element]
     return L
-
-animals = { 'a': ['aardvark'], 'b': ['baboon'], 'c': ['coati']}
-
-animals['d'] = ['donkey']
-animals['d'].append('dog')
-animals['d'].append('dingo')
-
-biggest(animals)

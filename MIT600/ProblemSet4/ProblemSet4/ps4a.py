@@ -241,12 +241,13 @@ def playHand(hand, wordList, n):
             # Otherwise (the word is valid):
             else:
                 # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
-                score = getWordScore(userinp)
+                score = getWordScore(userinp, HAND_SIZE)
                 totalsc += score
                 print(userinp, ' earned', score, 'points.', end='')
                 print(' Total:', totalsc)
                 # Update the hand 
-                hand = updateHand(hand)
+                hand = updateHand(hand, userinp)
+                print()
 
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
     if sum(hand.values()) == 0:
@@ -270,11 +271,17 @@ def playGame(wordList):
  
     2) When done playing the hand, repeat from step 1    
     """
-    uchoice = input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
-    
-
-
-
+    userinp = ''
+    d = {'n':0, 'r':1}
+    while userinp != 'e':
+        userinp = (input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
+        if userinp == 'n' or userinp == 'r':
+            replay = d.get(userinp)
+        else:
+            print('Invalid command.')
+        if replay:
+            hand = dealHand(HAND_SIZE)
+        playHand(hand, wordList, HAND_SIZE)
 #
 # Build data structures used for entire session and play game
 #

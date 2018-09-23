@@ -21,7 +21,6 @@ def longest_run(L):
         
     for n in range(1, len(L)):
 
-            # add the last chunk into dict.
         if L[n] == L[n-1]:
             print('EVEN', L[n], '==', L[n-1])
             if dir == -1:

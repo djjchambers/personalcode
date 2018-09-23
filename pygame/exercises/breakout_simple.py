@@ -63,8 +63,8 @@ class Ball(pygame.sprite.Sprite):
     # Direction of ball (in degrees)
     direction = 200
 
-    width = 50
-    height = 50
+    width = 10
+    height = 10
 
     # Constructor. Pass in the color of the block, and its x and y position
     def __init__(self):

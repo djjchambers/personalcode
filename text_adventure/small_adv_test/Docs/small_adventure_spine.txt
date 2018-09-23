@@ -1,0 +1,85 @@
+adventure game
+
+main game code
+    logic
+    map
+    room connections
+    script for game
+Character
+    Enemy
+    NPC
+        conversation
+        trigger word
+        blah blah treasure
+Parser
+    verbs
+        go/walk
+            can just use direction words (N,S,E,W,U,D. Any need for 8 cardinal points? Apart from added complexity?)
+        get/take
+        climb
+        swim
+        light (lantern)
+        fight/attack/hit/kill
+        search
+            (NB shouldn't have to sift through stuff, obj shouldn't be too well hidden to notice)
+        dig/shovel/uncover
+        move
+            (NB bit generic! Opens up too many complexities)
+        throw
+        rub
+        push/pull
+        open/close
+        pour
+        drink/eat
+        unlock/lock
+        press
+        dial
+        turn
+        put
+    nouns
+        if 2 nouns: complex action (put THING on THING)
+        
+    nothing words
+        a, an, the - knock em out to start
+    prepositions
+        bit annoying.
+            into, on, through, between, among, etc
+            intricate, maybe no use case apart from IN or ON or maybe UNDER
+            PUT X IN Y (battery in torch)
+            PUT X ON Y (record on gramophone)
+        
+    
+dungeon
+    rooms
+        exits
+            how to deal with adding exits/reciprocity of directions?
+                added functionality later!
+            method in Room to add?
+            exits = {} empty dict
+    connect the rooms
+items
+    gold
+        special class - Treasure
+    weapon
+        special class
+    key
+    amulet
+        magic item
+    misc
+        container
+            flag (capacity - size of object it can contain. Any point?)
+        lantern
+            flag (lit/unlit. If room has unlit flag...)
+            special class?
+    backpack
+    SPAWN method to put item HERE
+    open object - SPAWN other object when CONDITION met
+    break object - same as above. ie break coconut, spawn coconut milk.
+        need to set attribute for these, or just special case functions in main game loop?
+    WHERE IS OBJECT
+        main loop has items dict for items. Each room is a key, values are a list of objects
+        also chars dict for NPCs/enemies
+basic functionality
+    SAVE/RESTORE
+        consider what info to save - items, inventory, current_room, score, hitpoints
+        and once saved how to RESTORE... separate function to jump into main loop? where? how? Save/restore IN main loop?
