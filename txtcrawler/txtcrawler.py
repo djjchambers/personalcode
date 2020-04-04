@@ -9,6 +9,8 @@
 
 import os
 from datetime import datetime
+from typing import Sequence
+
 DESKTOP = "C:\\Users\\djjch\\OneDrive\\Desktop"
 
 def swap_backslash_for_fwdslash(path):
@@ -25,17 +27,14 @@ def fix_path(path):
     path = append_slash_if_missing_in_path(path)
     return path
 
-def list_text_files_in_folder(path):
+def list_text_files_in_folder(path:str)->Sequence[str]:
     # returns list naming every txt file in folder
-    result = []
-    for file in os.listdir(path):
-        if file.endswith('.txt'):
-            result.append(file)
-    result = sorted(result)
-    return result
+    return [filename for filename in sorted(os.listdir(path)) if filename.endswith('.txt')]
     
-def list_text_files_containing_hashtags(path):
-    pass
+def list_text_files_containing_hashtags(list_of_filenames):
+    count = 0
+    for filename in list_of_filenames:
+    with open()
     
 def generate_datestamp():
     datestamp = date.today()
