@@ -25,7 +25,7 @@ def test_fix_path():
 # create designated number of files in temp dir for testing, with hashtags or dummy text in them.
 # this is for testing function which finds text files
 def write_to_file(number, pathname):
-    textlist = ['#idea', '#boilerplate', 'test text', '#double #tags text']
+    textlist = ['some idea #idea #extra-tag', 'blah #boilerplate', 'test text', 'more test text']
     textitem = islice(cycle(textlist), number)
     for i, item in enumerate(textitem):
         filename = f"file{i}.txt"
@@ -42,5 +42,5 @@ def test_hashtags_exist_in_which_of_5_text_files(tmpdir):
     write_to_file(5, tmpdir.dirpath())
     filelist = list_text_files_in_folder(tmpdir.dirpath())
     filescontainingtags = hashtags_exist_in_which_of_5_text_files(tmpdir.dirpath(), filelist)
-    expected = 4
+    expected = 3
     assert len(filescontainingtags) == expected

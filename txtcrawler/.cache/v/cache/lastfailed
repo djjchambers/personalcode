@@ -1,0 +1,4 @@
+{
+  "test_txtcrawler.py": true,
+  "test_txtcrawler.py::test_crawl": true
+}

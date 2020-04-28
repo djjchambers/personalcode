@@ -1,6 +1,7 @@
-# import notefinder, notereader, notewriter
+from notefinder import
+from notereader import
+from notefiler import
 
-# hashdict = {'#ideas': append_to_ideas_file,'#research': send_to_google_keep, '#quotes': append_to_quotes, '#todo': process_todo, '#boilerplate': process_boilerplate}
 
 
 
