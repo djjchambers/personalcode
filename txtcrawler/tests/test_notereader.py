@@ -4,12 +4,12 @@ import pytest
 
 from notereader import parse_notes
 
-
+# todo refactor these tests to accept a list not iterator
 def test_read_simple_note():
     notes = "->sheep made of balloons befriends ardently religious anteater #ideas"
     # load into stringbuffer
     parsed_notes = parse_notes(StringIO(notes))
-    note01 = next(parsed_notes)
+    note01 = parsed_notes[0]
     assert note01.note == "sheep made of balloons befriends ardently religious anteater "
     assert note01.maintag == "#ideas"
     assert note01.subtags == []
@@ -18,8 +18,7 @@ def test_read_simple_note():
 def test_read_simple_note_2():
     notes = ["->sheep made of balloons befriends ardently religious anteater #ideas", "->gloves made of sponge pudding #ideas #gloves #sponge-pudding"]
     parsed_notes = parse_notes(StringIO("\n".join(notes)))
-    next(parsed_notes)
-    note02 = next(parsed_notes)
+    note02 = parsed_notes[1]
     assert note02.note == "gloves made of sponge pudding "
     assert note02.maintag == "#ideas"
     assert note02.subtags == ["#gloves", "#sponge-pudding"]
@@ -27,7 +26,7 @@ def test_read_simple_note_2():
 def test_replace_idea_with_ideas():
     notes = '->sheep made of balloons befriends ardently religious anteater #idea'
     parsed_notes = parse_notes(StringIO(notes))
-    note01 = next(parsed_notes)
+    note01 = parsed_notes[0]
     assert note01.maintag == '#ideas'
 
 def test_read_non_tag_note():

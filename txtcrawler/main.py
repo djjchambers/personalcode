@@ -1,11 +1,3 @@
-from notefinder import
-from notereader import
-from notefiler import
-
-
-
-
-
 # if __name__ == "__main__":
 #     # variables: input, defaults ok?
 #     # hashdict = names of principal hashtags and corresponding function to call

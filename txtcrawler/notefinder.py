@@ -30,18 +30,24 @@ def fix_path(path):
     return path
 
 
-def list_text_files_in_folder(pathname: str) -> Sequence[str]:
+def list_text_files_in_folder(pathname):
     # returns list naming every txt file in folder
+    print('looking for text files in', pathname)
     return [filename for filename in sorted(os.listdir(pathname)) if filename.endswith('.txt')]
 
-
-def hashtags_exist_in_which_of_5_text_files(pathname, filelist):
-    filescontainingtags = []
+# todo returns list of filenames
+def notes_exist_in_which_text_files(pathname, filelist, reserved_list):
+    print("file list is", filelist)
+    print("reserved files to avoid:", reserved_list)
+    fileswithnotes = []
     for filename in filelist:
-        with open(os.path.join(pathname, filename), 'r') as filetoread:
-            fullfiletext = filetoread.read()
-            if '#' in fullfiletext:
-                filescontainingtags.append(filename)
-    return filescontainingtags
-
-
+        if filename not in reserved_list:
+            print("Checking", filename, "for notes...")
+            with open(os.path.join(pathname, filename), 'r') as filetoread:
+                fullfiletext = filetoread.read()
+                if '->' in fullfiletext:
+                    fileswithnotes.append(filename)
+        else:
+            print(filename, "found in reserved list, not checking")
+    print("files containing notes:", ','.join(fileswithnotes))
+    return fileswithnotes

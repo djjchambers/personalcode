@@ -22,10 +22,6 @@ def test_send_to_folder(tmpdir):
     expected = "note written to balloon-been_done.txt in folder project"
     assert send_to_folder(tmpdir, note_01) == expected
 
-def test_send_to_todoist(mocker):
-    assert send_to_todoist()
-
-def test_write_to_google_drive():
-    noteobj = Note(note='a giant flying bladder filled with hydrogen', maintag='#research', subtags=['#zeppelin', '#oh_the_humanity'])
-    if os.path.exists()
-    assert write_to_google_drive(noteobj) == 'note written to google drive'
+# no idea here
+# def test_send_to_todoist(mocker):
+#     assert send_to_todoist()
